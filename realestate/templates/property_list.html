@@ -3,16 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <title>Property List</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Optional: Your custom styles -->
+    <style>
+        /* Your custom styles here */
+        .property-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            position: relative; /* Added for button positioning */
+        }
+        .no-property {
+            color: #999;
+        }
+        .action-buttons {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Property List</h1>
-    <ul>
-        {% for property in properties %}
-            <li>{{ property.name }} - {{ property.address }} - {{ property.location }}</li>
-        {% empty %}
-            <li>No properties available.</li>
-        {% endfor %}
-    </ul>
-    <a href="{% url 'add_property' %}">Add Property</a>
+    <div class="container mt-4">
+        <h1>Property List</h1>
+        <ul class="list-group mt-3">
+            {% for property in properties %}
+                <li class="list-group-item property-item">
+                    <div class="action-buttons">
+                        <a class="btn btn-warning" href="{% url 'edit_property' property.id %}">Edit</a>
+                        <a class="btn btn-danger" href="{% url 'delete_property' property.id %}">Delete</a>
+                    </div>
+                    <h5>{{ property.name }}</h5>
+                    <p><strong>Address:</strong> {{ property.address }}</p>
+                    <p><strong>Location:</strong> {{ property.location }}</p>
+                    <p><strong>Price:</strong> ${{ property.price }}</p>
+                </li>
+            {% empty %}
+                <li class="list-group-item no-property">No properties available.</li>
+            {% endfor %}
+        </ul>
+        <a class="btn btn-primary mt-3" href="{% url 'add_property' %}">Add Property</a>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (optional, for dropdowns, modals, etc.) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

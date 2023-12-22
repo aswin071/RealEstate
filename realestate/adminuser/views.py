@@ -18,7 +18,7 @@ def login_view(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 login(request, user)  
-                return redirect('home')
+                return redirect('property_list')
     else:
         form = CustomAuthenticationForm()
     return render(request, 'login.html', {'form': form})
