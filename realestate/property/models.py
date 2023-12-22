@@ -4,6 +4,7 @@ class Property(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
     location = models.CharField(max_length=100)
+    price = models.IntegerField()
     
 
     def __str__(self):
