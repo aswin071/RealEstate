@@ -31,6 +31,7 @@ class Unit(models.Model):
 class Tenant(models.Model):
     name = models.CharField(max_length=100)
     address = models.CharField(max_length=255)
+    document_proofs = models.TextField()
     unit = models.ForeignKey(Unit, related_name='tenants', on_delete=models.CASCADE)
     agreement_end_date = models.DateField()
     monthly_rent_date = models.IntegerField()

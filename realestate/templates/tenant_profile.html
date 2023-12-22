@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tenant Profile</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Optional: Your custom styles -->
+    <style>
+        /* Your custom styles here */
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .info-group {
+            margin-bottom: 15px;
+        }
+        .info-group p {
+            margin-bottom: 5px;
+        }
+        /* Customize further as needed */
+    </style>
+</head>
+<body>
+    <div class="container profile-container">
+        <h1>Tenant Profile</h1>
+        <div class="info-group">
+            <h2>Personal Information</h2>
+            <p><strong>Name:</strong> {{ tenant.name }}</p>
+            <p><strong>Address:</strong> {{ tenant.address }}</p>
+            <p><strong>Document Proofs:</strong> {{ tenant.document_proofs }}</p>
+            <!-- Display other tenant information -->
+        </div>
+
+        <div class="info-group">
+            <h2>Rental Information</h2>
+            <p><strong>Agreement End Date:</strong> {{ tenant.agreement_end_date }}</p>
+            <p><strong>Monthly Rent Date:</strong> {{ tenant.monthly_rent_date }}</p>
+            <!-- Display other rental information -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery (optional) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

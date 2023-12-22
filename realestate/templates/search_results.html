@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+    <h2>Properties</h2>
+    <ul>
+        {% for property in properties %}
+            <li>{{ property.name }} - {{ property.address }} - {{ property.location }}</li>
+        {% empty %}
+            <li>No properties found.</li>
+        {% endfor %}
+    </ul>
+    <h2>Units</h2>
+    <ul>
+        {% for unit in units %}
+            <li>{{ unit.property.name }} - {{ unit.features }}</li>
+        {% empty %}
+            <li>No units found.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
