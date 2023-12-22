@@ -5,10 +5,6 @@ from .forms import CustomAuthenticationForm
 
 
 
-@login_required
-def home(request):
-    return render(request,'home.html')
-
 def login_view(request):
     if request.method == 'POST':
         form = CustomAuthenticationForm(data=request.POST)
