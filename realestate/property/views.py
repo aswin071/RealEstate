@@ -45,6 +45,7 @@ def assign_tenant(request):
         form = TenantForm(request.POST)
         if form.is_valid():
             form.save()
+            redirect('tenant_profile')
     else:
         form = TenantForm()
     return render(request, 'assign_tenant.html', {'form': form})
